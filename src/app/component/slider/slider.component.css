@@ -1,9 +1,12 @@
-.banner{
-    margin-top: 0;
-    height: 450px;
-    width: 100%;
+.inicio{
     background-image: url(/assets/background-footer.svg);
     background-size: cover;
+    margin-bottom: 3rem;
+}
+.banner{
+    margin-top: 0;
+    height: 470px;
+    width: 100%;
 }
 .carousel {
     position: relative;
@@ -72,4 +75,13 @@ left: 10px;
 
 .carousel-control-next {
 right: 10px;
+}
+
+
+.delivery{
+    height:300px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -1,0 +1,58 @@
+.salchis-section {
+    text-align: center;
+    margin-bottom: 6rem;
+    font-family: 'Poppins', sans-serif;
+}
+.descripcion {
+    font-size: 16px;
+    font-weight: 400;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+.salchi-title{
+
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.salchis-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.salchis-block {
+    width: 250px;
+    margin: 10px;
+    text-align: center;
+}
+
+.salchis-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
+.salchis-title {
+    font-size: 16px;
+    font-weight: 400;
+    margin: 10px 0;
+}
+
+.salchis-price {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.salchis-button {
+    width: 150px;
+    background-color: #E80E16;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+  

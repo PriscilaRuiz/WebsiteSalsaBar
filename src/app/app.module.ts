@@ -7,15 +7,19 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SliderComponent } from './component/slider/slider.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { BannerComponent } from './component/banner/banner.component';
 import { AlitasComponent } from './component/alitas/alitas.component';
+import { SalchisComponent } from './component/salchis/salchis.component';
+import { CombosComponent } from './component/combos/combos.component';
+import { BebidasComponent } from './component/bebidas/bebidas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    BannerComponent,
     AlitasComponent,
+    SalchisComponent,
+    CombosComponent,
+    BebidasComponent,
   ],
   imports: [
     BrowserModule,
