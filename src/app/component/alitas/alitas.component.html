@@ -1,6 +1,6 @@
-<section class="alitas-section">
+<section id="alitas" class="alitas-section">
     <p class="alitas-title">Alitas</p>
-    <p>Disfruta de nuestras alitas selecciona tu sabor favorito y elije tu presentación personal favorita.    </p>
+    <p>Disfruta de nuestras alitas selecciona tu sabor favorito y elije tu presentación personal favorita.</p>
     <nav class="alitas-navbar">
       <button class="alitas-btn active">Saladas</button>
       <button class="alitas-btn">Dulces</button>
@@ -10,38 +10,91 @@
       <div class="alitas-block">
         <img src="./assets/img/alitas.jpg" alt="Alitas">
         <p>Tocino</p>
-        <button class="alitas-add-btn">Añadir</button>
+        <button class="alitas-add-btn" (click)="openSM(contenido)">Añadir</button>
       </div>
       <div class="alitas-block">
         <img src="./assets/img/alitas.jpg" alt="Alitas">
         <p>Al Ajo</p>
-        <button class="alitas-add-btn">Añadir</button>
+        <button class="alitas-add-btn" (click)="openSM(contenido)">Añadir</button>
       </div>
       <div class="alitas-block">
         <img src="./assets/img/alitas.jpg" alt="Alitas">
         <p>Oriental</p>
-        <button class="alitas-add-btn">Añadir</button>
+        <button class="alitas-add-btn" (click)="openSM(contenido)">Añadir</button>
       </div>
       <div class="alitas-block">
         <img src="./assets/img/alitas.jpg" alt="Alitas">
         <p>Criolla</p>
-        <button class="alitas-add-btn">Añadir</button>
+        <button class="alitas-add-btn" (click)="openSM(contenido)">Añadir</button>
       </div>
       <div class="alitas-block">
         <img src="./assets/img/alitas.jpg" alt="Alitas">
         <p>Chimichurri</p>
-        <button class="alitas-add-btn">Añadir</button>
+        <button class="alitas-add-btn" (click)="openSM(contenido)">Añadir</button>
       </div>
       <div class="alitas-block">
         <img src="./assets/img/alitas.jpg" alt="Alitas">
         <p>Olivo</p>
-        <button class="alitas-add-btn">Añadir</button>
+        <button class="alitas-add-btn" (click)="openSM(contenido)">Añadir</button>
       </div>
       <div class="alitas-block">
         <img src="./assets/img/alitas.jpg" alt="Alitas">
         <p>Crema de Ajo</p>
-        <button class="alitas-add-btn">Añadir</button>
+        <button class="alitas-add-btn" (click)="openSM(contenido)">Añadir</button>
       </div>
+      
     </div>
   </section>
-  
+
+<ng-template #contenido let-modal>
+    <div class="modal-header modal-scrollable">
+        <h5><b>Selecciona tu producto</b></h5>
+        <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+      <div class="producto-block">
+        <h5><b>Llego el Sabor</b></h5>
+        <p>6 deliciosas alitas</p>
+        <b>+</b>
+        <p>papas fritas</p>
+        <b>+</b>
+        <p>1 salsa a tu elección</p>
+        <button class="btn btn-outline-danger btn-alitas"><b>S/. 17.50 </b></button>
+      </div>
+      <div class="producto-block">
+        <h5><b>Sabor y control</b></h5>
+        <p>8 deliciosas alitas</p>
+        <b>+</b>
+        <p>papas fritas</p>
+        <b>+</b>
+        <p>1 salsa a tu elección</p>
+        <button class="btn btn-outline-danger btn-alitas"><b>S/. 23.50 </b></button>
+      </div>
+    </div>
+    <div class="body-cremas">
+      <h5><b>Selecciona tus cremas</b></h5>
+      <p>Selecciona las cremas que acompañaran tus deliciosas papas fritas.</p>
+      <div class="cbx-cremas">
+        <label><input type="checkbox" id="cbx-aji" value="Aji"> Aji</label> <br>
+        <label><input type="checkbox" id="cbx-aji" value="Mayonesa"> Mayonesa</label> <br>
+        <label><input type="checkbox" id="cbx-aji" value="Ketchup"> Ketchup</label>
+      </div>
+      <div class="more-especf">
+        <div class="header-especf">
+          <h5><b>Especificaciones adicionales</b></h5>
+          <button type="button" class="btn" (click)="moreSpecf()"><i class="fa-solid fa-notes-medical" style="color:red"></i></button>
+        </div>
+        <div class="body-especf">
+          <textarea *ngIf="isShow"  name="especificaciones" id="text-especf" rows="5" class="txtarea-specf"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" (click)="modal.dismiss()">Agregar y seguir comprando</button>
+        <button type="button" class="btn btn-outline-danger" (click)="modal.dismiss()">Agregar e ir a Pagar</button>
+    </div>
+</ng-template>
+
+<script src="https://kit.fontawesome.com/f65313731c.js" crossorigin="anonymous"></script>
