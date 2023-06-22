@@ -17,7 +17,10 @@ export class AlitasComponent {
     this.modal.open(contenido,{size:'lg'});
   }
   moreSpecf(){
-    this.isShow = !this.isShow;
+    const textarea = document.querySelector('#text-especf') as HTMLElement;
+    const divcontainer = document.querySelector('#body-especf') as HTMLElement;
+    textarea?.classList.toggle('showtxt');
+    divcontainer?.classList.toggle('withtxtarea');
   }
 
 }

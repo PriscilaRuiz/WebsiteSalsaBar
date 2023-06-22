@@ -1,0 +1,190 @@
+[{
+  "_id": 1,
+  "nombre": "LLego el Sabor",
+  "categoria": "Personal",
+  "precio": 17.5
+},{
+  "_id": 2,
+  "nombre": "Sabor y Control",
+  "categoria": "Personal",
+  "precio": 23.5
+},{
+  "_id": 3,
+  "nombre": "Idilio",
+  "categoria": "Salchis",
+  "precio": 12
+},{
+  "_id": 4,
+  "nombre": "Devórame otra vez",
+  "categoria": "Salchis",
+  "precio": 15
+},{
+  "_id": 5,
+  "nombre": "La mas bella",
+  "categoria": "Salchis",
+  "precio": 18
+},{
+  "_id": 6,
+  "nombre": "La indestructible",
+  "categoria": "Salchis",
+  "precio": 22
+},{
+  "_id": 7,
+  "nombre": "Yo Quisiera",
+  "categoria": "Combos",
+  "precio": 34
+},{
+  "_id": 8,
+  "nombre": "Decisiones",
+  "categoria": "Combos",
+  "precio": 44
+},{
+  "_id": 9,
+  "nombre": "Sobredosis",
+  "categoria": "Combos",
+  "precio": 58
+},{
+  "_id": 10,
+  "nombre": "El Gran Combo",
+  "categoria": "Combos",
+  "precio": 72
+},{
+  "_id": 11,
+  "nombre": "Coca Cola",
+  "categoria": "Bebidas",
+  "precio": 3.5
+},{
+  "_id": 12,
+  "nombre": "Fanta",
+  "categoria": "Bebidas",
+  "precio": 3.5
+},{
+  "_id": 13,
+  "nombre": "Guarana",
+  "categoria": "Bebidas",
+  "precio": 2.5
+},{
+  "_id": 14,
+  "nombre": "Inka Cola",
+  "categoria": "Bebidas",
+  "precio": 3.5
+},{
+  "_id": 15,
+  "nombre": "Sprite",
+  "categoria": "Bebidas",
+  "precio": 3.5
+},{
+  "_id": 16,
+  "nombre": "Agua San Luis",
+  "categoria": "Bebidas",
+  "precio": 3
+},{
+  "_id": 17,
+  "nombre": "Cerveza ...",
+  "categoria": "Cerveza",
+  "descipcion": "...",
+  "precio": 12
+},{
+  "_id": 18,
+  "nombre": "Cerveza ...",
+  "categoria": "Cerveza",
+  "descipcion": "...",
+  "precio": 12
+},{
+  "_id": 19,
+  "nombre": "Cerveza ...",
+  "categoria": "Cerveza",
+  "descipcion": "...",
+  "precio": 12
+},{
+  "_id": 20,
+  "nombre": "Limonada Frozen",
+  "categoria": "Refrescos",
+  "precio": 10
+},{
+  "_id": 21,
+  "nombre": "Maracuya Frozen",
+  "categoria": "Refrescos",
+  "precio": 10
+},{
+  "_id": 22,
+  "nombre": "Chica Morada",
+  "categoria": "Refrescos",
+  "precio": 10
+},{
+  "_id": 23,
+  "nombre": "Tocino",
+  "categoria": "Salsas"
+},{
+  "_id": 24,
+  "nombre": "Al Ajo",
+  "categoria": "Salsas"
+},{
+  "_id": 25,
+  "nombre": "Oriental",
+  "categoria": "Salsas"
+},{
+  "_id": 26,
+  "nombre": "Criolla",
+  "categoria": "Salsas"
+},{
+  "_id": 27,
+  "nombre": "Chimichurri",
+  "categoria": "Salsas"
+},{
+  "_id": 28,
+  "nombre": "Olivo",
+  "categoria": "Salsas"
+},{
+  "_id": 29,
+  "nombre": "Crema de Ajo",
+  "categoria": "Salsas"
+},{
+  "_id": 30,
+  "nombre": "BBQ",
+  "categoria": "Salsas"
+},{
+  "_id": 31,
+  "nombre": "Hawaiana",
+  "categoria": "Salsas"
+},{
+  "_id": 32,
+  "nombre": "Mango",
+  "categoria": "Salsas"
+},{
+  "_id": 33,
+  "nombre": "Maracuyá",
+  "categoria": "Salsas"
+},{
+  "_id": 34,
+  "nombre": "Honey Mustard",
+  "categoria": "Salsas"
+},{
+  "_id": 35,
+  "nombre": "Aguaymanto",
+  "categoria": "Salsas"
+},{
+  "_id": 36,
+  "nombre": "Acevichada",
+  "categoria": "Salsas"
+},{
+  "_id": 37,
+  "nombre": "BBQ Hot",
+  "categoria": "Salsas"
+},{
+  "_id": 38,
+  "nombre": "Crema de Rocoto",
+  "categoria": "Salsas"
+},{
+  "_id": 39,
+  "nombre": "Mango Habanero",
+  "categoria": "Salsas"
+},{
+  "_id": 40,
+  "nombre": "Búffalo",
+  "categoria": "Salsas"
+},{
+  "_id": 41,
+  "nombre": "Búffalo Americano",
+  "categoria": "Salsas"
+}]

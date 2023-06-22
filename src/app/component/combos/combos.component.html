@@ -95,10 +95,10 @@
         <div class="more-especf">
           <div class="header-especf">
             <h5><b>Especificaciones adicionales</b></h5>
-            <button type="button" class="btn" (click)="moreSpecf()"><i class="fa-solid fa-notes-medical" style="color:red"></i></button>
+            <button type="button" class="btn btn-open-especf" id="btn-open-especf" (click)="moreSpecf()"><i class="fa-solid fa-notes-medical" style="color:red"></i></button>
           </div>
-          <div class="body-especf">
-            <textarea *ngIf="isShow"  name="especificaciones" id="text-especf" rows="5" class="txtarea-specf"></textarea>
+          <div class="body-especf" id="body-especf">
+            <textarea name="especificaciones" id="text-especf" rows="5" class="txtarea-specf"></textarea>
           </div>
         </div>
       </div>
