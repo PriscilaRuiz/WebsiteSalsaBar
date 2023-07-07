@@ -1,0 +1,20 @@
+.modal-title{
+    color: #E80E16;
+    font-size: 20px;
+}
+.input_form{
+    color: #E80E16;
+    margin-top: 15px;
+}
+#inputUser{
+    margin-top: 5px;
+    border: none;
+    border-left: 10px solid #E80E16;
+    background: #eee;
+    padding: 10px;
+    border-radius: 10px;
+    width: 100%;
+  }
+ #inputUser:focus {
+    outline: none;
+  }

@@ -3,47 +3,46 @@
     <p>Disfruta de nuestras alitas selecciona tu sabor favorito y elije tu presentación personal favorita.    </p>
     
     <nav class="bebidas-navbar">
-      <button class="bebidas-btn active">Gaseosas</button>
-      <button class="bebidas-btn">Cerveza</button>
-      <button class="bebidas-btn">Refrescos</button>
+      <button class="bebidas-btn" [class.active]="activeButton === 'Gaseosas'" (click)="changeActiveButton('Gaseosas')">Gaseosas</button>
+      <button class="bebidas-btn" [class.active]="activeButton === 'Cerveza'" (click)="changeActiveButton('Cerveza')">Cerveza</button>
+      <button class="bebidas-btn" [class.active]="activeButton === 'Refrescos'" (click)="changeActiveButton('Refrescos')">Refrescos</button>
     </nav>
+
     <div class="bebidas-container">
-      <div class="bebidas-block">
-        <img src="./assets/img/fanta.jpg" alt="Alitas">
-        <h3 class="bebidas-title">Coca Cola</h3>
-        <p class="bebidas-price">S/ 3.50</p>
-        <button class="bebidas-add-btn">Añadir</button>
-      </div>
-      <div class="bebidas-block">
-        <img src="./assets/img/fanta.jpg" alt="Alitas">
-        <h3 class="bebidas-title">Fanta</h3>
-        <p class="bebidas-price">S/ 3.50</p>
-        <button class="bebidas-add-btn">Añadir</button>
-      </div>
-      <div class="bebidas-block">
-        <img src="./assets/img/fanta.jpg" alt="Alitas">
-        <h3 class="bebidas-title">Guarana</h3>
-        <p class="bebidas-price">S/ 2.50</p>
-        <button class="bebidas-add-btn">Añadir</button>
-      </div>
-      <div class="bebidas-block">
-        <img src="./assets/img/fanta.jpg" alt="Alitas">
-        <h3 class="bebidas-title">Inka Kola</h3>
-        <p class="bebidas-price">S/ 3.50</p>
-        <button class="bebidas-add-btn">Añadir</button>
-      </div>
-      <div class="bebidas-block">
-        <img src="./assets/img/fanta.jpg" alt="Alitas">
-        <h3 class="bebidas-title">Sprite</h3>
-        <p class="bebidas-price">S/ 3.50</p>
-        <button class="bebidas-add-btn">Añadir</button>
-      </div>
-      <div class="bebidas-block">
-        <img src="./assets/img/fanta.jpg" alt="Alitas">
-        <h3 class="bebidas-title">Agua San Luis</h3>
-        <p class="bebidas-price">S/ 3.00</p>
-        <button class="bebidas-add-btn">Añadir</button>
-      </div>
+      <ng-container *ngFor="let bebida of bebidas">
+        <div class="bebidas-block" *ngIf="activeButton === 'Gaseosas'">
+          <form action="">
+            <img src="{{ bebida.imagen }}" alt="">
+            <h3 class="bebidas-title">{{ bebida.nombre }}</h3>
+            <p class="bebidas-price">S/ {{ bebida.precio }}</p>
+            <button class="bebidas-add-btn" (click)="guardar(bebida.nombre,bebida.categoria,bebida.precio,bebida.imagen)">Añadir</button>
+          </form>
+        </div>
+      </ng-container>
+
+      <ng-container *ngFor="let cerveza of cervezas">
+        <div class="bebidas-block" *ngIf="activeButton === 'Cerveza'">
+          <form action="">
+            <img src="{{ cerveza.imagen }}" alt="">
+            <h3 class="bebidas-title">{{ cerveza.nombre }}</h3>
+            <p class="bebidas-price">S/ {{ cerveza.precio }}</p>
+            <button class="bebidas-add-btn" (click)="guardar(cerveza.nombre,cerveza.categoria,cerveza.precio,cerveza.imagen)">Añadir</button>
+          </form>
+        </div>
+      </ng-container>
+
+
+      <ng-container *ngFor="let refresco of refrescos">
+        <div class="bebidas-block" *ngIf="activeButton === 'Refrescos'">
+          <form action="">
+            <img src="{{ refresco.imagen }}" alt="">
+            <h3 class="bebidas-title">{{ refresco.nombre }}</h3>
+            <p class="bebidas-price">S/ {{ refresco.precio }}</p>
+            <button class="bebidas-add-btn" (click)="guardar(refresco.nombre,refresco.categoria,refresco.precio,refresco.imagen)">Añadir</button>
+          </form>
+        </div>
+      </ng-container>
+
     </div>
   </section>
   

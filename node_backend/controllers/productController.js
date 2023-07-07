@@ -1,68 +1,104 @@
-let Product = require('../models/product_model');
+let Producto = require('../models/product_model');
 
 module.exports = {
-    show: (req,res)=>{
-        Product.find({})
-        .then((productos)=>{
+    verProducto: (req,res)=>{
+        Producto.find({})
+        .then(productos => {
             res.json(productos);
-        }) 
-        .catch((err)=>{
-            console.error('Ocurrio un error al listar los productos: ', err);
+        })
+        .catch(err => {
+            console.log(err);
         });
     },
-    finOne: (req,res)=>{
-        let id = req.params.id;
-        Product.findById({_id:id})
-        .then((product)=>{
-            res.json(product);
+    verAlitasSaladas:(req,res)=>{
+        Producto.find({categoria: 'Salsa Salada'})
+        .then(productos => {
+            res.json(productos);
         })
-        .catch((err)=>{
-            console.error('Error al encontrar el producto: ', err);
+        .catch(err => {
+            console.log(err);
         });
     },
-    create: (req,res)=>{
-        let product = new Product;
-        product._id = req.body._id,
-        product.nombre = req.body.nombre,
-        product.precio = req.body.precio,
-        product.categoria = req.body.categoria,
-        product.descripcion = req.body.descripcion
-
-        product.save()
-        .then((obj)=>{
-            res.json(obj);
+    verAlitasDulces:(req,res)=>{
+        Producto.find({categoria: 'Salsa Dulce'})
+        .then(productos => {
+            res.json(productos);
         })
-        .catch((err)=>{
-            console.error('Error al insertar el producto: ', err);
+        .catch(err => {
+            console.log(err);
         });
     },
-    update: (req,res)=>{
-        let id = req.params.id,
-        product = new Product;
-        product.nombre = req.body.nombre,
-        product.precio = req.body.precio,
-        product.categoria = req.body.categoria,
-        product.descripcion = req.body.descripcion
-
-        Product.updateOne({_id:id},product)
-        .then((newProduct)=>{
-            res.send("Se modifico el objeto");
+    verAlitasPicantes:(req,res)=>{
+        Producto.find({categoria: 'Salsa Picante'})
+        .then(productos => {
+            res.json(productos);
         })
-        .catch((err)=>{
-            console.log('Error al modificar el producto: ', err);
+        .catch(err => {
+            console.log(err);
         });
     },
-    delete:(req,res)=>{
-        let id = req.params.id;
-        Product.findByIdAndDelete(id)
-        .then((product)=>{
-            if(!product){
-                return res.status(404).send();
-            }
-            res.send(product);
+    verSalchis:(req,res)=>{
+        Producto.find({categoria: 'Salchis'})
+        .then(productos => {
+            res.json(productos);
         })
-        .catch((err) => {
-            console.log('Error al eliminar el producto: ', err);
+        .catch(err => {
+            console.log(err);
         });
-    }
+    },
+    verBebidas:(req,res)=>{
+        Producto.find({categoria: 'Bebidas'})
+        .then(productos => {
+            res.json(productos);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    },
+    verCervezas:(req,res)=>{
+        Producto.find({categoria: 'Cerveza'})
+        .then(productos => {
+            res.json(productos);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    },
+    verRefrescos:(req,res)=>{
+        Producto.find({categoria: 'Refrescos'})
+        .then(productos => {
+            res.json(productos);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    },
+    agregarProducto: (req,res)=>{
+        const producto = new Producto(req.body);
+        producto.save()
+            .then(producto => {
+            res.status(200).json({ 'producto': 'Producto añadido exitosamente' });
+            })
+            .catch(err => {
+            res.status(400).send('No se pudo guardar el Producto');
+            });
+    },
+    verCombos:(req,res)=>{
+        Producto.find({categoria: 'Combos'})
+        .then(persons => {
+            res.json(persons);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    },
+    verPersonales:(req,res)=>{
+        Producto.find({categoria: 'Personal'})
+        .then(persons => {
+            res.json(persons);
+        })
+        .catch(err => {
+            console.log(err);
+        });
+    },
 }

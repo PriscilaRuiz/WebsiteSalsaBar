@@ -1,24 +1,42 @@
-var express = require('express'),
-router = express.Router(),
-controller = require('../controllers/productController');
+const express = require('express');
+const productoRouter = express.Router();
+Pcontroller = require('../controllers/productController');
 
-router.get('/',(req,res)=>{
-    controller.show(req,res);
+productoRouter.route('/productos').get((req, res) => {
+    Pcontroller.verProducto(req,res);
 });
 
-router.post('/',(req,res)=>{
-    controller.create(req,res);
+productoRouter.route('/productos/alitas_saladas').get((req, res) => {
+    Pcontroller.verAlitasSaladas(req,res);
+});
+productoRouter.route('/productos/alitas_dulces').get((req, res) => {
+    Pcontroller.verAlitasDulces(req,res);
+});
+productoRouter.route('/productos/alitas_picantes').get((req, res) => {
+    Pcontroller.verAlitasPicantes(req,res);
 });
 
-router.post('/:id',(req,res)=>{
-    controller.finOne(req,res);
+productoRouter.route('/productos/salchis').get((req, res) => {
+    Pcontroller.verSalchis(req,res);
 });
 
-router.put('/:id',(req,res)=>{
-    controller.update(req,res);
+productoRouter.route('/productos/bebidas').get((req, res) => {
+    Pcontroller.verBebidas(req,res);
+});
+productoRouter.route('/productos/cerveza').get((req, res) => {
+    Pcontroller.verCervezas(req,res);
+});
+productoRouter.route('/productos/refrescos').get((req, res) => {
+    Pcontroller.verRefrescos(req,res);
+});
+productoRouter.route('/productos/combos').get((req, res) => {
+    Pcontroller.verCombos(req,res);
+});
+productoRouter.route('/productos/personales').get((req, res) => {
+    Pcontroller.verPersonales(req,res);
+});
+productoRouter.route('/productos/add').post((req, res) => {
+    Pcontroller.agregarProducto(req,res);
 });
 
-router.delete('/:id',(req,res)=>{
-    controller.delete(req,res);
-});
-module.exports = router;
+module.exports = productoRouter;

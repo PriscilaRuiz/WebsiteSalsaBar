@@ -1,14 +1,18 @@
-var mongoose = require('mongoose')
-var Schema = mongoose.Schema;
-mongoose.connect("mongodb://127.0.0.1:27017/salsabar");
-
-var productSchema = new Schema({
-    _id : {type: Number},
-    nombre: {type: String, require:true},
-    precio: {type: Number, require:true},
-    categoria: {type: String, require:true},
-    descripcion: {type: String, require:true},
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://127.0.0.1:27017/salsabar2', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
+const connection = mongoose.connection;
+connection.once('open', () => {
+  console.log('Conexión exitosa a la base de datos MongoDB');
 });
 
-var product = mongoose.model('Product',productSchema,'productos');
-module.exports = product;
+const productoSchema = new mongoose.Schema({
+    nombre: String,
+    categoria: String,
+    precio: String,
+    imagen:String
+});
+const Producto = mongoose.model('Producto', productoSchema);
+module.exports = Producto;

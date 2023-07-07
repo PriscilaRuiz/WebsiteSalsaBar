@@ -1,0 +1,59 @@
+.newsletter-section {
+    background-image: url(/assets/suscripcion_fondo.svg);
+    padding: 40px;
+    text-align: center;
+    
+  }
+  
+  .newsletter-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .newsletter-content h1 {
+    background-color: #ffffffc0;
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+    font-size: 2rem;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .newsletter-content p {
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffffc0;
+  }
+  
+  .newsletter-form {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .newsletter-form input[type="email"] {
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .newsletter-form button {
+    padding: 10px 20px;
+    background-color: #E80E16;
+    color: #fff;
+    border: none;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .newsletter-form button:hover {
+    background-color: #c9171d;
+  }
+  

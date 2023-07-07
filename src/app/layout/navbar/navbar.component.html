@@ -11,19 +11,24 @@
     <!-- Toolbar -->
     <div class="toolbar" id="toolbar" (scroll)="onscroll()" [ngClass]="toolbarfixed?'toolbarfixed':'toolbar'">
 
-      <div class="toolbar-left">
-        <input type="text" placeholder="Buscar en SalsaBar" class="search-input">
-        <i class="fa-solid fa-magnifying-glass fa-beat buscar"></i>    
+      <div class="toolbar-left-buscador">
+        <button class="btn" (click)="Buscador(lista)"><i class="fa-solid fa-magnifying-glass fa-beat buscar"></i> </button> 
       </div>
+
+      <datalist id="listaproductos">
+        <ng-container *ngFor="let producto of productos">
+          <option value="{{ producto.nombre }}">
+        </ng-container>
+      </datalist>
 
       <div class="toolbar-center">
         <img src="./assets/img/logo.png" alt="Logo" width="100">
       </div>
 
       <div class="toolbar-right">
-        <button class="cart-button">
+        <button class="cart-button" (click)="Carro(contenido)">
           <i class="fa-solid fa-cart-shopping fa-bounce" style="color: #ffffff;"></i>
-          S/. 0.00
+          S/. {{calcularTotalPrecios()}}
         </button>
       </div>
     </div>
@@ -50,6 +55,167 @@
       <hr class="separacion mb-3">
     </div> 
   </header>
+
+  <ng-template #contenido let-modal>
+    <form >
+      <div class="modal-header modal-scrollable">
+        <h5><b>Tienes {{calcularCantidadPrecios()}} productos en el Carrito:</b></h5>
+        <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="pedido" *ngFor="let car of cars">
+        <div class="body-pedido">
+          <img src="{{car.imagen}}" alt="">
+
+          <div class="descripcion">
+            <h5>{{car.nombre}}</h5>
+            <p>S/.{{car.precio}}</p>
+            <div class="contador">
+              <button class="btn btn-outline-danger" (click)="incrementarCantidad(car)">+</button>
+              <p class="cantidad">{{car.cantidad}}</p>
+              <button class="btn btn-outline-danger" (click)="decrementarCantidad(car)">-</button>
+            </div>
+          </div>
+        </div>
+
+        <button class="close" aria-label="close" type="button" (click)="eliminarCarrito(car)">
+          <span aria-hidden="true">&times;</span>
+        </button>
+
+      </div>
+      <div class="modal-precio">
+        <div>
+          <p>SubTotal</p>
+          <p>S/. {{calcularTotalPrecios()}}</p>
+        </div>
+        <div>
+          <h5>Total</h5>
+          <h5>S/. {{calcularTotalPrecios()}}</h5>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger" (click)="Pagar(cuenta)">Continuar Compra</button>
+      </div>
+    </form>
+  </ng-template>
+
+  <ng-template #lista let-modal>
+
+    <div class="modal-header modal-scrollable">
+      <div class="toolbar-left">
+        <input [(ngModel)]="terminoBusqueda" (input)="buscarProductos()" type="text" placeholder="Buscar en SalsaBar" class="search-input" list="listaproductos">
+      </div>
+      <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="pedido" *ngFor="let producto of resultados">
+      <form action="">
+        <div class="body-pedido">
+          <img src="{{producto.imagen}}" alt="">
+  
+          <div class="descripcion">
+            <h5>{{producto.nombre}}</h5>
+            <p>Categoria: {{producto.categoria}}</p>
+            <ng-container *ngIf="!(producto.categoria === 'Salsa Dulce' || producto.categoria === 'Salsa Salada' || producto.categoria === 'Salsa Picante'); else checkboxTemplate">
+              <p>Precio: S/.{{producto.precio}}</p>
+            </ng-container>
+            <ng-template #checkboxTemplate>
+              <div class="conten-check">
+                <div class="me-3 form-check" *ngFor="let personal of personales">
+                  <input class="form-check-input" (click)="changeActiveCheck(personal)" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    S/. {{personal.precio}}
+                  </label>
+                </div>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </form>
+      <div class="modal-footer">
+        <button class="btn-añadir" (click)="agregar(producto.nombre,producto.categoria,producto.precio,producto.imagen)">Añadir</button>
+      </div>
+    </div>
+
+  </ng-template>
+
+  <ng-template #cuenta let-modal>
+
+    <div class="modal-header modal-scrollable">
+      <h1><b>¡Ya casi Terminamos!</b></h1>
+      <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <form action="" [formGroup]="registers" (ngSubmit)="guardar()">
+        <div class="card p-3 shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+          <h5 class="card-body mb-3" style="border-bottom: rgba(0, 0, 0, 0.5) solid 1px; color: #96090d;"><b>Identificacion</b></h5>
+          <div class="card-body mb-3 ms-3">
+            <label class="form-label" for=""><b>Nombre Completo</b></label>
+            <input formControlName="nombre" required class="form-control" type="text" placeholder="Nombre Completo">
+          </div>
+
+          <div class="card-body mb-3 ms-3">
+            <label class="form-label" for=""><b>Numero de Celular</b></label>
+            <input formControlName="numero" required class="form-control" type="text" placeholder="ingresa celular">
+          </div>
+
+          <div class="card-body ms-3">
+            <label class="form-label" for=""><b>Direccion</b></label>
+            <input formControlName="direccion" required class="form-control" type="text" placeholder="direccion">
+          </div>
+  
+        </div>
+
+        <div class="card p-3 shadow-sm p-3 mb-5 bg-body-tertiary rounded">
+          <h5 class="card-body mb-3" style="border-bottom: rgba(0, 0, 0, 0.5) solid 1px; color: #96090d;"><b>Pago</b></h5>
+
+          <div class="form-check card-body mb-3 ms-3" style="border: rgba(0, 0, 0,0.3) solid 1px; border-radius: 1rem;">
+            <input formControlName="formaPago" value="Pago con tarjetas Débito" class="form-check-input" type="radio" name="formaPago" id="flexRadioDefault1" style="background-color: rgb(231, 13, 21);">
+            <label class="form-check-label" for="flexRadioDefault1">
+              <b>Pago con tarjetas Débito</b>
+            </label>
+          </div>
+
+          <div class="form-check card-body mb-3 ms-3" style="border: rgba(0, 0, 0,0.3) solid 1px; border-radius: 1rem;">
+            <input formControlName="formaPago" value="Pago con tarjetas Crédito" class="form-check-input" type="radio" name="formaPago" id="flexRadioDefault2" style="background-color: rgb(231, 13, 21);">
+            <label class="form-check-label" for="flexRadioDefault2">
+              <b>Pago con tarjetas Crédito</b>
+            </label>
+          </div>
+          <div class="form-check card-body mb-3 ms-3" style="border: rgba(0, 0, 0,0.3) solid 1px; border-radius: 1rem;">
+            <input formControlName="formaPago" value="Pago presencial Efectivo Soles" class="form-check-input" type="radio" name="formaPago" id="flexRadioDefault3" style="background-color: rgb(231, 13, 21);">
+            <label class="form-check-label" for="flexRadioDefault3">
+              <b>Pago presencial Efectivo Soles</b>
+            </label>
+          </div>
+
+          <div class="card-body ms-3">
+            <label class="form-label" for=""><b>DNI o RUC</b></label>
+            <input formControlName="doc" required minlength="8" maxlength="10" class="form-control" type="text" placeholder="ingresa documento">
+          </div>
+
+          <div class="card-body mb-3 ms-3">
+            <label class="form-label" for=""><b>Nombre Completo</b></label>
+            <input formControlName="nombredoc" required class="form-control" type="text" placeholder="Nombre Completo">
+          </div>
+  
+        </div>
+  
+        <div class="mt-5 mb-3 modal-footer">
+          <button type="submit" class="btn btn-outline-danger">Terminar Pedido</button>
+        </div>
+      </form>
+
+    </div>
+
+  </ng-template>
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>

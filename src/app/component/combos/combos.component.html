@@ -3,62 +3,29 @@
     <p class="descripcion">En todas nuestras salchis puedes agregar los adicionales que quieras.</p>
     
     <div class="combos-container">
-      <div class="combo-block">
-        <img src="./assets/img/combo.jpg" alt="Combo 1" class="combo-image">
-        <h3 class="combo-title">Yo Quisiera</h3>
-        <p class="combo-description">12 deliciosas alitas</p>
+      <div class="combo-block" *ngFor="let combo of combos">
+        <img src="{{combo.imagen}}" alt="Combo 1" class="combo-image">
+        <h3 class="combo-title">{{combo.nombre}}</h3>
+        <p class="combo-description">{{combo.canti_a}} deliciosas alitas</p>
         <span class="suma">+</span>
         <p class="combo-description">papas fritas</p>
         <span class="suma">+</span>
-        <p class="combo-description">2 Salsas a su elección</p>
-        <p class="combo-price">S/ 34.00</p>
-        <button class="combo-button" (click)="openSM(contenido)">Añadir</button>
+        <p class="combo-description">{{combo.canti_c}} Salsas a su elección</p>
+        <p class="combo-price">S/ {{combo.precio}}</p>
+        <button class="combo-button" (click)="openSM(contenido,combo.nombre,combo.canti_a,combo.canti_c,combo.categoria,combo.imagen,combo.precio)">Añadir</button>
       </div>
-      <div class="combo-block">
-        <img src="./assets/img/combo.jpg" alt="Combo 2" class="combo-image">
-        <h3 class="combo-title">Deciciones</h3>
-        <p class="combo-description">18 deliciosas alitas</p>
-        <span class="suma">+</span>
-        <p class="combo-description">papas fritas</p>
-        <span class="suma">+</span>
-        <p class="combo-description">3 Salsas a su elección</p>        
-        <p class="combo-price">S/ 44.00</p>
-        <button class="combo-button" (click)="openSM(contenido)">Añadir</button>
-      </div>
-      <div class="combo-block">
-        <img src="./assets/img/combo.jpg" alt="Combo 3" class="combo-image">
-        <h3 class="combo-title">Sobredosis</h3>
-        <p class="combo-description">24 deliciosas alitas</p>
-        <span class="suma">+</span>
-        <p class="combo-description">papas fritas</p>
-        <span class="suma">+</span>
-        <p class="combo-description">4 Salsas a su elección</p>
-        <p class="combo-price">S/ 58.00</p>
-        <button class="combo-button" (click)="openSM(contenido)">Añadir</button>
-      </div>
-      <div class="combo-block">
-        <img src="./assets/img/combo.jpg" alt="Combo 4" class="combo-image">
-        <h3 class="combo-title">El Gran Combo</h3>
-        <p class="combo-description">30 deliciosas alitas</p>
-        <span class="suma">+</span>
-        <p class="combo-description">papas fritas</p>
-        <span class="suma">+</span>
-        <p class="combo-description">5 Salsas a su elección</p>
-        <p class="combo-price">S/ 72.00</p>
-        <button class="combo-button" (click)="openSM(contenido)">Añadir</button>
-      </div>
+
     </div>
   </section>
 
 <ng-template #contenido let-modal>
-    <div class="modal-header modal-scrollable" style="display: none;">
-
-    </div>
+  <form action="" #formulario="ngForm" (ngSubmit)="guardar(formulario)">
+    <div class="modal-header modal-scrollable" style="display: none;"></div>
     <div class="modal-body">
       <div class="encabezado-modal">
         <div class="content-combo">
           <h3>Combo</h3>
-          <h1 class="nombre-combo">YO QUISIERA</h1>
+          <h1 class="nombre-combo">{{selectedName}}</h1>
         </div>
         <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
             <span aria-hidden="true">&times;</span>
@@ -66,7 +33,7 @@
       </div>
       <div class="pedido-body">
         <h5><b>Selecciona tus salsas</b></h5>
-        <p>Puedes elegir hasta <span style="color: red;"><b>2 </b></span>Salsas</p>
+        <p>Puedes elegir hasta <span style="color: red;"><b> {{selectedCanti_c}} </b></span>Salsas</p>
         <div class="salsas-select-buttons">
           <div *ngFor="let element of buttons; let i = index">
             <button class="btn" [class.active]="activeIndex === i" (click)="changeActiveIndex(i)">
@@ -104,7 +71,7 @@
       </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline-danger" (click)="modal.dismiss()">Agregar y seguir comprando</button>
-      <button type="button" class="btn btn-outline-danger" (click)="modal.dismiss()">Agregar e ir a Pagar</button>
+      <button type="submit" class="btn btn-outline-danger" (click)="modal.dismiss()">Agregar y seguir comprando</button>
     </div>
+  </form>
 </ng-template>

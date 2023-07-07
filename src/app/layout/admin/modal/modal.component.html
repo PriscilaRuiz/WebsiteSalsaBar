@@ -1,0 +1,52 @@
+<ng-template #contentAddUser let-modal id="ModalAdd">
+    <div class="modal-header" style="display: none;">
+    </div>
+    <div class="modal-body">
+        <h4 class="modal-title" id="modal-basic-title">Agregar Usuario</h4>
+      <form #frmAdd="ngForm">
+        <div class="input_form">
+            <label class="input_add">Nombre:</label> <br>
+            <input id="inputUser" type="text" name="nombre" ngModel>
+        </div>
+        <div class="input_form">
+            <label class="input_add">Correo:</label> <br>
+            <input id="inputUser" type="text" name="correo" ngModel>
+        </div>
+        <div class="input_form">
+            <label class="input_add">Contraseña:</label> <br>
+            <input id="inputUser" type="text" name="password" ngModel>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" (click)="modal.dismiss('Save click')">Cancelar</button>
+            <button type="button" class="btn btn-outline-danger" (click)="addUser(frmAdd)">Save</button>
+          </div>
+      </form>
+    </div>
+  </ng-template>
+
+  <ng-template #contentAddProduct let-modal id="ModalAdd">
+    <div class="modal-header" style="display: none;">
+    </div>
+    <div class="modal-body">
+        <h4 class="modal-title" id="modal-basic-title">Agregar Producto</h4>
+      <form #frmAdd="ngForm">
+        <div class="input_form">
+            <label class="input_add">Nombre:</label> <br>
+            <input id="inputUser" type="text" name="nombre" ngModel>
+        </div>
+        <div class="input_form">
+            <label class="input_add">Correo:</label> <br>
+            <input id="inputUser" type="text" name="correo" ngModel>
+        </div>
+        <div class="input_form">
+            <label class="input_add">Contraseña:</label> <br>
+            <input id="inputUser" type="text" name="password" ngModel>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" (click)="modal.dismiss('Save click')">Cancelar</button>
+            <button type="button" class="btn btn-outline-danger" (click)="addUser(frmAdd)">Save</button>
+          </div>
+      </form>
+    </div>
+  </ng-template>
+

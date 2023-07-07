@@ -1,0 +1,96 @@
+  <ng-template #contentAddProduct let-modal id="ModalAdd">
+    <div class="modal-header" style="display: none;">
+    </div>
+    <div class="modal-body">
+        <h4 class="modal-title" id="modal-basic-title">Agregar Producto</h4>
+        <label class="input-alitas">Categoria:</label> <br>
+        <div class="alitas-navbar">
+          <div *ngFor="let element of buttons; let i = index">
+            <button class="alitas-btn" [class.active]="activeIndex === i" (click)="changeActiveIndex(i)">
+              {{ element.name }}
+            </button>
+          </div>
+        </div>
+        <form #frmAdd="ngForm" *ngIf="activeIndex == 0">
+          <div class="input_form">
+              <label class="input_add">Nombre:</label> <br>
+              <input id="inputUser" type="text" name="nombre" ngModel>
+          </div>
+          <div class="input_form">
+              <label class="input_add">Precio:</label> <br>
+              <input id="inputUser" type="text" name="precio" ngModel>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger" (click)="modal.dismiss('Save click')">Cancelar</button>
+              <button type="button" class="btn btn-outline-danger" (click)="addProducto(frmAdd)">Save</button>
+            </div>
+        </form>
+
+        <form #frmAdd="ngForm" *ngIf="activeIndex == 1">
+          <div class="input_form">
+            <label class="input_add">Nombre:</label> <br>
+            <input id="inputUser" type="text" name="nombre" ngModel>
+        </div>
+        <div class="input_form">
+            <label class="input_add">Precio:</label> <br>
+            <input id="inputUser" type="text" name="precio" ngModel>
+        </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger" (click)="modal.dismiss('Save click')">Cancelar</button>
+              <button type="button" class="btn btn-outline-danger" (click)="addProducto(frmAdd)">Save</button>
+            </div>
+        </form>
+        <form #frmAdd="ngForm" *ngIf="activeIndex == 2">
+          <div class="input_form">
+              <label class="input_add">Nombre:</label> <br>
+              <input id="inputUser" type="text" name="nombre" ngModel>
+          </div>
+          <div class="input_form">
+              <label class="input_add">Precio:</label> <br>
+              <input id="inputUser" type="text" name="correo" ngModel>
+          </div>
+          <div class="input_form">
+              <label class="input_add">Descripcion:</label> <br>
+              <input id="inputUser" type="text" name="descripcion" ngModel placeholder="No olvidar separar los detalles con +">
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger" (click)="modal.dismiss('Save click')">Cancelar</button>
+              <button type="button" class="btn btn-outline-danger" (click)="addProducto(frmAdd)">Save</button>
+            </div>
+        </form>
+
+        <form #frmAdd="ngForm" *ngIf="activeIndex == 3">
+          <div class="input_form">
+              <label class="input_add">Nombre:</label> <br>
+              <input id="inputUser" type="text" name="nombre" ngModel>
+          </div>
+          <div class="input_form">
+              <label class="input_add">Precio:</label> <br>
+              <input id="inputUser" type="text" name="precio" ngModel>
+          </div>
+          <div class="input_form">
+              <label class="input_add">Tipo:</label> <br>
+              <input id="inputUser" type="text" name="tipo" ngModel>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger" (click)="modal.dismiss('Save click')">Cancelar</button>
+              <button type="button" class="btn btn-outline-danger" (click)="addProducto(frmAdd)">Save</button>
+            </div>
+        </form>
+
+        <form #frmAdd="ngForm" *ngIf="activeIndex == 4">
+          <div class="input_form">
+              <label class="input_add">Nombre:</label> <br>
+              <input id="inputUser" type="text" name="nombre" ngModel>
+          </div>
+          <div class="input_form">
+              <label class="input_add">Tipo:</label> <br>
+              <input id="inputUser" type="text" name="tipo" ngModel>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-danger" (click)="modal.dismiss()">Cancelar</button>
+              <button type="button" class="btn btn-outline-danger" (click)="addProducto(frmAdd);modal.dismiss()">Save</button>
+            </div>
+        </form>
+    </div>
+  </ng-template>

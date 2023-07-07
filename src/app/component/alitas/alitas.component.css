@@ -1,5 +1,6 @@
 .alitas-section {
   text-align: center;
+  margin-bottom: 6rem;
 }
 .alitas-title{
   font-family: 'Poppins', sans-serif;
@@ -39,6 +40,7 @@
 }
 
 .alitas-block {
+  display: block;
   width: 250px;
   margin: 10px;
   text-align: center;
